@@ -1,5 +1,5 @@
 <template>
-  <div class="slide">
+  <div class="slide" v-on:click="onClick">
     <slot></slot>
   </div>
 </template>
@@ -7,6 +7,12 @@
 <script>
 export default {
   name: "Slide",
+  props: ["timeline"],
+  methods: {
+    onClick: function() {
+      this.$props.timeline.play();
+    },
+  },
 };
 </script>
 
