@@ -1,5 +1,5 @@
 <template>
-  <div class="slide" v-on:click="onClick" :style="cssVars" ref="slide">
+  <div class="slide" :style="cssVars" ref="slide">
     <div :class="`wrapper slide-${slideName}`">
       <slot></slot>
     </div>
