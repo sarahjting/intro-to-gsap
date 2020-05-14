@@ -1,0 +1,3 @@
+@function sw($percentage) {
+  @return calc(var(--slide-width) * #{$percentage} / 100);
+}
