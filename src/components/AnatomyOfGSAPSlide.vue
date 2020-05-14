@@ -8,25 +8,37 @@
         ><i></i>'.circle'</span
       >,
       <span class="anatomy-part anatomy-options" ref="anatomyOptions"
-        ><i></i>{left: 100,</span
-      >
+        ><i></i>{x: 100,
+      </span>
       <span class="anatomy-part anatomy-duration" ref="anatomyDuration"
         ><i></i>duration: 5</span
       ><span class="anatomy-part anatomy-options"><i></i>}</span>);
     </div>
+    <AnatomyPreviewBox />
+    <AnatomyMethodBox />
+    <AnatomySelectorBox />
+    <AnatomyOptionsBox />
     <AnatomyDurationBox />
   </Slide>
 </template>
 
 <script>
 import gsap from 'gsap';
+import AnatomyMethodBox from './AnatomyOfGSAP/AnatomyMethodBox';
 import AnatomyDurationBox from './AnatomyOfGSAP/AnatomyDurationBox';
+import AnatomyPreviewBox from './AnatomyOfGSAP/AnatomyPreviewBox';
+import AnatomySelectorBox from './AnatomyOfGSAP/AnatomySelectorBox';
+import AnatomyOptionsBox from './AnatomyOfGSAP/AnatomyOptionsBox';
 import Slide from './Slide';
 export default {
   name: 'IntroToTweenSlide',
   components: {
     Slide,
+    AnatomyMethodBox,
+    AnatomyPreviewBox,
     AnatomyDurationBox,
+    AnatomySelectorBox,
+    AnatomyOptionsBox,
   },
   data: () => ({
     tl: null,
@@ -105,11 +117,5 @@ div {
 .anatomy-duration {
   --hover: lightskyblue;
   --color: royalblue;
-}
-.circle {
-  background-color: #fff !important;
-}
-.circle-base {
-  left: 0;
 }
 </style>

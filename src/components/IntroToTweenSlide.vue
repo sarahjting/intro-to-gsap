@@ -21,7 +21,7 @@
           <span>100px</span>
         </div>
         <div class="stat">
-          <span>left:</span>
+          <span>x:</span>
           <span>{{ Math.floor(progress * 3) }}px</span>
         </div>
       </div>
@@ -85,7 +85,7 @@ export default {
         .to(
           '.slide-tween .circle',
           {
-            left: this.slideWidth * 0.7,
+            x: this.slideWidth * 0.7,
             duration: 3,
             ease: Power4.easeOut,
           },
