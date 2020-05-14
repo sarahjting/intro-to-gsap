@@ -11,6 +11,8 @@
     "@fortawesome/fontawesome-free": "^5.13.0",
     "core-js": "^3.6.4",
     "gsap": "^3.2.6",
+    "scrollmagic": "^2.0.7",
+    "scrollscene": "0.0.16",
     "vue": "^2.6.11",
     "vuex": "^3.4.0"
   },

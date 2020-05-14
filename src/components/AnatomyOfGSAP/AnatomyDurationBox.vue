@@ -1,15 +1,6 @@
 <template>
-  <div class="anatomy-duration-detail" @click="onClick">
-    <div class="slow">
-      <div class="content">
-        ...to('.circle', {left: 100,
-        <span class="duration">duration: 10</span>})
-      </div>
-      <div class="animation">
-        <div class="circle circle-base" ref="slowCircle"></div>
-      </div>
-    </div>
-    <div class="fast">
+  <div class="anatomy-duration-detail">
+    <div class="regular">
       <div class="content">
         <span class="anatomy-part anatomy-duration">
           ...to('.circle', {left: 100,
@@ -20,7 +11,16 @@
         <div class="circle circle-base" ref="regularCircle"></div>
       </div>
     </div>
-    <div class="regular">
+    <div class="slow">
+      <div class="content">
+        ...to('.circle', {left: 100,
+        <span class="duration">duration: 10</span>})
+      </div>
+      <div class="animation">
+        <div class="circle circle-base" ref="slowCircle"></div>
+      </div>
+    </div>
+    <div class="fast">
       <div class="content">
         <span class="anatomy-part anatomy-duration">
           ...to('.circle', {left: 100,
@@ -99,6 +99,7 @@ div {
       color: royalblue;
       display: flex;
       .circle {
+        left: 0;
         border: sw(0.5) lightskyblue solid;
         background-color: royalblue;
         position: absolute;

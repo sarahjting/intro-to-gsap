@@ -1,5 +1,5 @@
 <template>
-  <Slide :timeline="tl" slideName="tween">
+  <Slide :timeline="tl" slideName="tween" slideCount="5">
     <h1>What is a tween?</h1>
     <div class="circle-wrapper">
       <div class="circle circle-left stagger-0"></div>
