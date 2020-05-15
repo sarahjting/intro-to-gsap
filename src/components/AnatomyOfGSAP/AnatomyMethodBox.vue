@@ -2,7 +2,7 @@
   <div class="anatomy-method-detail">
     <div>
       <div class="content">
-        gsap.<span class="method">to</span>('.circle', {x: 100})
+        gsap.<span class="method">to</span>('.ball', {x: 100})
       </div>
       <div class="animation">
         <div class="circle moving-circle" ref="toCircle"></div>
@@ -10,7 +10,7 @@
     </div>
     <div>
       <div class="content">
-        gsap.<span class="method">from</span>('.circle', {x: 100})
+        gsap.<span class="method">from</span>('.ball', {x: 100})
       </div>
       <div class="animation">
         <div class="circle" ref="fromCircle"></div>
@@ -18,7 +18,7 @@
     </div>
     <div>
       <div class="content">
-        gsap.<span class="method">fromTo</span>('.circle', {x: -100}, {x: 100})
+        gsap.<span class="method">fromTo</span>('.ball', {x: -100}, {x: 100})
       </div>
       <div class="animation">
         <div class="circle" ref="fromToCircle"></div>
@@ -28,31 +28,27 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
-import { TimelineMax } from 'gsap';
+import { mapState } from "vuex";
+import { TimelineMax } from "gsap";
 export default {
-  name: 'AnatomyMethodBox',
-  computed: mapState(['slideWidth']),
-  methods: {},
-  data: () => ({
-    loops: [],
-  }),
-  watch: {
-    slideWidth: function() {
-      this.loops.forEach((x) => x.kill());
+  name: "AnatomyMethodBox",
+  computed: mapState(["slideWidth"]),
+  methods: {
+    startAnimations: function() {
+      this.loops.forEach(x => x.kill());
 
       console.log(this.$store.state.slideWidth);
 
       this.loops.to = new TimelineMax({ repeat: -1 });
       this.loops.to.to(this.$refs.toCircle, {
-        x: this.$store.state.slideWidth * 0.3,
-        duration: 3,
+        x: this.$store.state.slideWidth * 0.2,
+        duration: 3
       });
 
       this.loops.from = new TimelineMax({ repeat: -1 });
       this.loops.from.from(this.$refs.fromCircle, {
-        x: this.$store.state.slideWidth * 0.3,
-        duration: 3,
+        x: this.$store.state.slideWidth * 0.2,
+        duration: 3
       });
 
       this.loops.fromTo = new TimelineMax({ repeat: -1 });
@@ -60,15 +56,26 @@ export default {
         this.$refs.fromToCircle,
         {
           x: -this.$store.state.slideWidth * 0.3,
-          duration: 3,
+          duration: 3
         },
         {
           x: this.$store.state.slideWidth * 0.3,
-          duration: 3,
+          duration: 3
         }
       );
-    },
+    }
   },
+  data: () => ({
+    loops: []
+  }),
+  watch: {
+    slideWidth: function() {
+      this.startAnimations();
+    }
+  },
+  mounted: function() {
+    this.startAnimations();
+  }
 };
 </script>
 
@@ -84,7 +91,7 @@ div {
   padding: sw(1);
 }
 .anatomy-method-detail {
-  font-size: 0.5em;
+  font-size: 0.65em;
   margin: 0 sw(5);
 
   & > div {

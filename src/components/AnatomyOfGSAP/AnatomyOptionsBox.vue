@@ -2,7 +2,7 @@
   <div class="anatomy-options-detail">
     <div>
       <div class="content">
-        ...to('.circle', <span class="options">{x: 100}</span>)
+        ...to('.ball', <span class="options">{x: 100}</span>)
       </div>
       <div class="animation">
         <div class="circle moving-circle" ref="movingCircle"></div>
@@ -10,7 +10,7 @@
     </div>
     <div>
       <div class="content">
-        ...to('.circle', <span class="options">{color: red}</span>)
+        ...to('.ball', <span class="options">{color: red}</span>)
       </div>
       <div class="animation">
         <div class="circle" ref="blueCircle"></div>
@@ -18,7 +18,7 @@
     </div>
     <div>
       <div class="content">
-        ...to('.circle', <span class="options">{opacity: 0}</span>)
+        ...to('.ball', <span class="options">{opacity: 0}</span>)
       </div>
       <div class="animation">
         <div class="circle" ref="fadeCircle"></div>
@@ -28,34 +28,39 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
-import { TimelineMax } from 'gsap';
+import { mapState } from "vuex";
+import { TimelineMax } from "gsap";
 export default {
-  name: 'AnatomyOptionsBox',
-  computed: mapState(['slideWidth']),
-  methods: {},
-  data: () => ({
-    loops: [],
-  }),
-  watch: {
-    slideWidth: function() {
+  name: "AnatomyOptionsBox",
+  computed: mapState(["slideWidth"]),
+  methods: {
+    startAnimations: function() {
       if (this.loops.moving) this.loops.moving.kill();
       this.loops.moving = new TimelineMax({ repeat: -1 });
       this.loops.moving.to(this.$refs.movingCircle, {
-        left: this.$store.state.slideWidth * 0.5,
-        duration: 3,
+        left: this.$store.state.slideWidth * 0.45,
+        duration: 3
       });
-    },
+    }
+  },
+  data: () => ({
+    loops: []
+  }),
+  watch: {
+    slideWidth: function() {
+      this.startAnimations();
+    }
   },
   mounted: function() {
+    this.startAnimations();
     this.loops.color = new TimelineMax({ repeat: -1 });
     this.loops.color.to(this.$refs.blueCircle, {
-      backgroundColor: 'red',
-      duration: 3,
+      backgroundColor: "red",
+      duration: 3
     });
     this.loops.fade = new TimelineMax({ repeat: -1 });
     this.loops.fade.to(this.$refs.fadeCircle, { opacity: 0, duration: 3 });
-  },
+  }
 };
 </script>
 
@@ -71,7 +76,7 @@ div {
   padding: sw(1);
 }
 .anatomy-options-detail {
-  font-size: 0.5em;
+  font-size: 0.65em;
   margin: 0 sw(5);
 
   & > div {

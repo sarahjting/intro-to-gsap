@@ -1,7 +1,7 @@
 <template>
   <div class="anatomy-selector-detail">
     <div class="content">
-      This is a CSS Selector! You can read up about these at
+      This is a CSS Selector! Read more at
       <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors">
         MDN</a
       >.
@@ -11,13 +11,13 @@
 
 <script>
 export default {
-  name: 'AnatomySelectorBox',
+  name: "AnatomySelectorBox"
 };
 </script>
 
 <style lang="scss" scoped>
 .anatomy-selector-detail {
-  font-size: 0.5em;
+  font-size: 0.65em;
   margin: 0 sw(5);
   .content {
     flex: 2;

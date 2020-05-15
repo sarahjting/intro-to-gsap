@@ -3,8 +3,8 @@
     <div class="regular">
       <div class="content">
         <span class="anatomy-part anatomy-duration">
-          ...to('.circle', {x: 100,
-          <span class="duration">duration: 5</span>})
+          ...to('.ball', {x: 100,
+          <span class="duration">duration: 4</span>})
         </span>
       </div>
       <div class="animation">
@@ -13,8 +13,8 @@
     </div>
     <div class="slow">
       <div class="content">
-        ...to('.circle', {x: 100,
-        <span class="duration">duration: 10</span>})
+        ...to('.ball', {x: 100,
+        <span class="duration">duration: 8</span>})
       </div>
       <div class="animation">
         <div class="circle" ref="slowCircle"></div>
@@ -23,8 +23,8 @@
     <div class="fast">
       <div class="content">
         <span class="anatomy-part anatomy-duration">
-          ...to('.circle', {x: 100,
-          <span class="duration">duration: 1</span>})
+          ...to('.ball', {x: 100,
+          <span class="duration">duration: 2</span>})
         </span>
       </div>
       <div class="animation">
@@ -35,35 +35,41 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
-import { TimelineMax } from 'gsap';
+import { mapState } from "vuex";
+import { TimelineMax } from "gsap";
 export default {
-  name: 'AnatomyDurationBox',
-  computed: mapState(['slideWidth']),
-  methods: {},
-  data: () => ({
-    loops: [],
-    circles: {
-      slowCircle: 9,
-      regularCircle: 6,
-      fastCircle: 3,
-    },
-  }),
-  watch: {
-    slideWidth: function() {
-      const offset = this.$store.state.slideWidth * 0.4;
-      Object.keys(this.circles).forEach((k) => {
+  name: "AnatomyDurationBox",
+  computed: mapState(["slideWidth"]),
+  methods: {
+    startAnimations() {
+      const offset = this.$store.state.slideWidth * 0.3;
+      Object.keys(this.circles).forEach(k => {
         if (this.loops[k]) this.loops[k].kill();
         this.loops[k] = new TimelineMax({ repeat: -1 });
         this.loops[k].to(
           this.$refs[k],
           { left: offset, duration: this.circles[k] },
-          'loop'
+          "loop"
         );
       });
-    },
+    }
   },
-  mounted: function() {},
+  data: () => ({
+    loops: [],
+    circles: {
+      slowCircle: 8,
+      regularCircle: 4,
+      fastCircle: 2
+    }
+  }),
+  watch: {
+    slideWidth: function() {
+      this.startAnimations();
+    }
+  },
+  mounted: function() {
+    this.startAnimations();
+  }
 };
 </script>
 
@@ -79,7 +85,7 @@ div {
   padding: sw(1);
 }
 .anatomy-duration-detail {
-  font-size: 0.5em;
+  font-size: 0.65em;
   margin: 0 sw(5);
 
   & > div {

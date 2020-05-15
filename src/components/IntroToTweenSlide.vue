@@ -13,29 +13,13 @@
     <div class="stats-wrapper">
       <div class="stats stagger-0">
         <div class="stat">
-          <span>width:</span>
-          <span>100px</span>
-        </div>
-        <div class="stat">
-          <span>height:</span>
-          <span>100px</span>
-        </div>
-        <div class="stat">
           <span>x:</span>
           <span>{{ Math.floor(progress * 3) }}px</span>
         </div>
       </div>
       <div class="stats stagger-1">
         <div class="stat">
-          <span>width:</span>
-          <span>100px</span>
-        </div>
-        <div class="stat">
-          <span>height:</span>
-          <span>100px</span>
-        </div>
-        <div class="stat">
-          <span>left:</span>
+          <span>x:</span>
           <span>300px</span>
         </div>
       </div>
@@ -44,62 +28,54 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
-import { TimelineMax, Power4 } from 'gsap';
-import Slide from './Slide';
+import { mapState } from "vuex";
+import { TimelineMax } from "gsap";
+import Slide from "./Slide";
 export default {
-  name: 'IntroToTweenSlide',
+  name: "IntroToTweenSlide",
   components: {
-    Slide,
+    Slide
   },
   data: () => ({
     tl: null,
-    progress: 0,
+    progress: 0
   }),
-  computed: mapState(['slideWidth']),
+  computed: mapState(["slideWidth"]),
   watch: {
     slideWidth: function() {
       if (this.$data.tl) {
         this.$data.tl.kill();
       }
-      this.$data.tl = new TimelineMax({ paused: true });
+      this.$data.tl = new TimelineMax();
       this.$data.tl
-        .staggerFrom('.slide-tween .stagger-0', 1, { x: -100, opacity: 0 }, 0.1)
-        .addPause()
-        .staggerFrom('.slide-tween .stagger-1', 1, { x: -100, opacity: 0 }, 0.1)
-        .addPause()
+        .staggerFrom(".slide-tween .stagger-0", 1, { x: -100, opacity: 0 }, 0.1)
+        .staggerFrom(".slide-tween .stagger-1", 1, { x: -100, opacity: 0 }, 0.1)
         .staggerFrom(
-          '.slide-tween .stagger-2',
+          ".slide-tween .stagger-2",
           1,
           { x: -100, opacity: 0 },
           0.1,
-          'fade'
+          "fade"
         )
-        .to('.slide-tween .circle-right', { opacity: 0.1 }, 'fade')
-        .addPause()
+        .to(".slide-tween .circle-right", { opacity: 0.1 }, "fade")
+        .to(this.$data, { progress: 100, duration: 3 }, "slide")
         .to(
-          this.$data,
-          { progress: 100, duration: 3, ease: Power4.easeOut },
-          'slide'
-        )
-        .to(
-          '.slide-tween .circle',
+          ".slide-tween .circle",
           {
-            x: this.slideWidth * 0.7,
-            duration: 3,
-            ease: Power4.easeOut,
+            left: this.slideWidth * 0.7,
+            duration: 3
           },
-          'slide'
+          "slide"
         )
         .staggerTo(
-          '.slide-tween .stagger-2',
+          ".slide-tween .stagger-2",
           1,
           { x: 100, opacity: 0 },
           0.1,
-          'slide'
+          "slide"
         );
-    },
-  },
+    }
+  }
 };
 </script>
 

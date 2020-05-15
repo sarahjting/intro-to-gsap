@@ -1,5 +1,5 @@
 <template>
-  <Slide :timeline="tl" slideName="anatomy">
+  <Slide :timeline="tl" slideName="anatomy" slideCount="1">
     <h1>Anatomy of GSAP</h1>
     <div class="header">
       gsap.<span class="anatomy-part anatomy-method" ref="anatomyMethod"
@@ -14,68 +14,76 @@
         ><i></i>duration: 5</span
       ><span class="anatomy-part anatomy-options"><i></i>}</span>);
     </div>
-    <AnatomyPreviewBox />
-    <AnatomyMethodBox />
-    <AnatomySelectorBox />
-    <AnatomyOptionsBox />
-    <AnatomyDurationBox />
+    <div class="box">
+      <AnatomyPreviewBox v-if="selected === ''" />
+      <AnatomyMethodBox v-if="selected === 'anatomyMethod'" />
+      <AnatomySelectorBox v-if="selected === 'anatomySelector'" />
+      <AnatomyOptionsBox v-if="selected === 'anatomyOptions'" />
+      <AnatomyDurationBox v-if="selected === 'anatomyDuration'" />
+    </div>
   </Slide>
 </template>
 
 <script>
-import gsap from 'gsap';
-import AnatomyMethodBox from './AnatomyOfGSAP/AnatomyMethodBox';
-import AnatomyDurationBox from './AnatomyOfGSAP/AnatomyDurationBox';
-import AnatomyPreviewBox from './AnatomyOfGSAP/AnatomyPreviewBox';
-import AnatomySelectorBox from './AnatomyOfGSAP/AnatomySelectorBox';
-import AnatomyOptionsBox from './AnatomyOfGSAP/AnatomyOptionsBox';
-import Slide from './Slide';
+import gsap, { TimelineMax } from "gsap";
+import AnatomyMethodBox from "./AnatomyOfGSAP/AnatomyMethodBox";
+import AnatomyDurationBox from "./AnatomyOfGSAP/AnatomyDurationBox";
+import AnatomyPreviewBox from "./AnatomyOfGSAP/AnatomyPreviewBox";
+import AnatomySelectorBox from "./AnatomyOfGSAP/AnatomySelectorBox";
+import AnatomyOptionsBox from "./AnatomyOfGSAP/AnatomyOptionsBox";
+import Slide from "./Slide";
 export default {
-  name: 'IntroToTweenSlide',
+  name: "IntroToTweenSlide",
   components: {
     Slide,
     AnatomyMethodBox,
     AnatomyPreviewBox,
     AnatomyDurationBox,
     AnatomySelectorBox,
-    AnatomyOptionsBox,
+    AnatomyOptionsBox
   },
   data: () => ({
     tl: null,
     hoverables: {
-      anatomyMethod: 'anatomy-method',
-      anatomySelector: 'anatomy-selector',
-      anatomyOptions: 'anatomy-options',
-      anatomyDuration: 'anatomy-duration',
+      anatomyMethod: "anatomy-method",
+      anatomySelector: "anatomy-selector",
+      anatomyOptions: "anatomy-options",
+      anatomyDuration: "anatomy-duration"
     },
-    hovered: '',
+    hovered: "",
+    selected: ""
   }),
   methods: {
     underline: function(el) {
-      gsap.to(`.${el} i`, { width: '100%', duration: 0.5 });
+      gsap.to(`.${el} i`, { width: "100%", duration: 0.5 });
     },
     unline: function(el) {
-      gsap.to(`.${el} i`, { width: '0%', duration: 0.5 });
-    },
+      gsap.to(`.${el} i`, { width: "0%", duration: 0.5 });
+    }
   },
   watch: {
     hovered: function() {
-      Object.keys(this.hoverables).forEach((x) => {
-        if (this.hovered === x) this.underline(this.hoverables[x]);
+      Object.keys(this.hoverables).forEach(x => {
+        if (this.hovered === x || this.selected === x)
+          this.underline(this.hoverables[x]);
         else this.unline(this.hoverables[x]);
       });
-    },
+    }
   },
   mounted: function() {
-    Object.keys(this.hoverables).forEach((x) => {
+    this.$data.tl = new TimelineMax();
+    Object.keys(this.hoverables).forEach(x => {
       this.$refs[x].onmouseover = () => {
         this.hovered = x;
       };
       this.$refs[x].onmouseout = () => {
-        this.hovered = '';
+        this.hovered = "";
+      };
+      this.$refs[x].onclick = () => {
+        this.selected = x;
       };
     });
-  },
+  }
 };
 </script>
 
@@ -94,7 +102,7 @@ div {
   color: var(--color);
 }
 .anatomy-part i {
-  content: '';
+  content: "";
   position: absolute;
   width: 0;
   height: 100%;
@@ -117,5 +125,12 @@ div {
 .anatomy-duration {
   --hover: lightskyblue;
   --color: royalblue;
+}
+.box {
+  height: 40vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  display: flex;
 }
 </style>

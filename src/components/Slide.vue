@@ -7,53 +7,53 @@
 </template>
 
 <script>
-import { ScrollScene } from 'scrollscene';
+import { ScrollScene } from "scrollscene";
 
 export default {
-  name: 'Slide',
-  props: ['timeline', 'slideName', 'slideCount'],
+  name: "Slide",
+  props: ["timeline", "slideName", "slideCount"],
   computed: {
     cssVars: function() {
       return {
-        height: 100 + 'vh',
+        height: 100 + "vh"
       };
-    },
+    }
   },
   watch: {
     timeline: function() {
       if (!this.timeline) return;
       new ScrollScene({
         triggerElement: this.$refs.slide,
-        triggerHook: 'onLeave',
-        duration: '500%',
+        triggerHook: "onLeave",
+        duration: `${this.slideCount * 100}%`,
         offset: 0,
         gsap: {
-          timeline: this.timeline,
+          timeline: this.timeline
         },
-        useGlobalController: false,
+        useGlobalController: false
       }).Scene.setPin(this.$refs.slide).addIndicators({
-        name: 'pin scene',
-        colorEnd: '#000',
+        name: "pin scene",
+        colorEnd: "#000"
       });
-    },
+    }
   },
-  mounted: function() {},
+  mounted: function() {}
 };
 </script>
 
 <style>
 .slide {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: start;
 }
 .wrapper {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
 }
 </style>
