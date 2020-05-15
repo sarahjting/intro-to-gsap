@@ -5,21 +5,17 @@
       gsap.<span class="anatomy-part anatomy-method" ref="anatomyMethod"
         ><i></i>to</span
       >(<span class="anatomy-part anatomy-selector" ref="anatomySelector"
-        ><i></i>'.circle'</span
+        ><i></i>'.ball'</span
       >,
       <span class="anatomy-part anatomy-options" ref="anatomyOptions"
-        ><i></i>{x: 100,
-      </span>
-      <span class="anatomy-part anatomy-duration" ref="anatomyDuration"
-        ><i></i>duration: 5</span
-      ><span class="anatomy-part anatomy-options"><i></i>}</span>);
+        ><i></i>{x: 100}</span
+      >);
     </div>
     <div class="box">
       <AnatomyPreviewBox v-if="selected === ''" />
       <AnatomyMethodBox v-if="selected === 'anatomyMethod'" />
       <AnatomySelectorBox v-if="selected === 'anatomySelector'" />
       <AnatomyOptionsBox v-if="selected === 'anatomyOptions'" />
-      <AnatomyDurationBox v-if="selected === 'anatomyDuration'" />
     </div>
   </Slide>
 </template>
@@ -27,7 +23,6 @@
 <script>
 import gsap, { TimelineMax } from "gsap";
 import AnatomyMethodBox from "./AnatomyOfGSAP/AnatomyMethodBox";
-import AnatomyDurationBox from "./AnatomyOfGSAP/AnatomyDurationBox";
 import AnatomyPreviewBox from "./AnatomyOfGSAP/AnatomyPreviewBox";
 import AnatomySelectorBox from "./AnatomyOfGSAP/AnatomySelectorBox";
 import AnatomyOptionsBox from "./AnatomyOfGSAP/AnatomyOptionsBox";
@@ -38,7 +33,6 @@ export default {
     Slide,
     AnatomyMethodBox,
     AnatomyPreviewBox,
-    AnatomyDurationBox,
     AnatomySelectorBox,
     AnatomyOptionsBox
   },
@@ -47,8 +41,7 @@ export default {
     hoverables: {
       anatomyMethod: "anatomy-method",
       anatomySelector: "anatomy-selector",
-      anatomyOptions: "anatomy-options",
-      anatomyDuration: "anatomy-duration"
+      anatomyOptions: "anatomy-options"
     },
     hovered: "",
     selected: ""

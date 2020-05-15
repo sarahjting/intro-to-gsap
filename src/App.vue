@@ -3,6 +3,7 @@
     <div class="content" ref="content">
       <IntroToTweenSlide />
       <AnatomyOfGSAPSlide />
+      <SpecialOptionsSlide />
       <TimelineSlide />
     </div>
   </div>
@@ -11,12 +12,14 @@
 <script>
 import IntroToTweenSlide from "./components/IntroToTweenSlide";
 import AnatomyOfGSAPSlide from "./components/AnatomyOfGSAPSlide";
+import SpecialOptionsSlide from "./components/SpecialOptionsSlide";
 import TimelineSlide from "./components/TimelineSlide";
 export default {
   name: "App",
   components: {
     IntroToTweenSlide,
     AnatomyOfGSAPSlide,
+    SpecialOptionsSlide,
     TimelineSlide
   },
   computed: {

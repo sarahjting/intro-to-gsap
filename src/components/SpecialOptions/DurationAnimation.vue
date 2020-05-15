@@ -1,5 +1,5 @@
 <template>
-  <div class="anatomy-duration-detail">
+  <div class="animation">
     <div class="regular">
       <div class="content">
         <span class="anatomy-part anatomy-duration">
@@ -7,7 +7,7 @@
           <span class="duration">duration: 4</span>})
         </span>
       </div>
-      <div class="animation">
+      <div class="animation-box">
         <div class="circle" ref="regularCircle"></div>
       </div>
     </div>
@@ -16,7 +16,7 @@
         ...to('.ball', {x: 100,
         <span class="duration">duration: 8</span>})
       </div>
-      <div class="animation">
+      <div class="animation-box">
         <div class="circle" ref="slowCircle"></div>
       </div>
     </div>
@@ -27,7 +27,7 @@
           <span class="duration">duration: 2</span>})
         </span>
       </div>
-      <div class="animation">
+      <div class="animation-box">
         <div class="circle" ref="fastCircle"></div>
       </div>
     </div>
@@ -38,7 +38,7 @@
 import { mapState } from "vuex";
 import { TimelineMax } from "gsap";
 export default {
-  name: "AnatomyDurationBox",
+  name: "DurationAnimation",
   computed: mapState(["slideWidth"]),
   methods: {
     startAnimations() {
@@ -84,9 +84,8 @@ div {
   border-bottom: sw(0.5) lightskyblue solid;
   padding: sw(1);
 }
-.anatomy-duration-detail {
+.animation {
   font-size: 0.65em;
-  margin: 0 sw(5);
 
   & > div {
     display: flex;
@@ -96,7 +95,7 @@ div {
       margin-right: sw(5);
       white-space: nowrap;
     }
-    .animation {
+    .animation-box {
       flex: 2;
       position: relative;
       padding: sw(5);

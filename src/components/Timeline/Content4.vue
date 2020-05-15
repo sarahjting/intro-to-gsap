@@ -6,8 +6,12 @@
     <div>
       tl.to(".ball1", {x: 100, rotation: 360})
     </div>
-    <div><span class="hide">tl</span>.to(".ball2", {x: 50, rotation: 180})</div>
-    <div><span class="hide">tl</span>.to(".ball3", {x: 25, rotation: 90});</div>
+    <div>
+      <span class="hide">tl</span>.to(".ball2", {x: 100, rotation: 360})
+    </div>
+    <div>
+      <span class="hide">tl</span>.to(".ball3", {x: 100, rotation: 360});
+    </div>
   </div>
 </template>
 
@@ -19,8 +23,16 @@ export default {
 
 <style scoped lang="scss">
 .highlight {
-  background-color: palegoldenrod;
-  border-bottom: sw(0.5) solid gold;
+  background-color: gold;
+  border-bottom: sw(0.5) solid orangered;
+  color: darkred;
+}
+div {
+  margin: sw(1) 0;
+}
+.content {
+  background-color: lightgoldenrodyellow !important;
+  color: orangered;
 }
 .hide {
   color: transparent;

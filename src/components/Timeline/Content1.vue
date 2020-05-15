@@ -11,3 +11,10 @@ export default {
   name: "Content1"
 };
 </script>
+
+<style lang="scss" scoped>
+.content {
+  background-color: pink !important;
+  color: darkred;
+}
+</style>

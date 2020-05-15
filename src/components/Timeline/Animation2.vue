@@ -11,6 +11,7 @@ import { mapState } from "vuex";
 import { TimelineMax } from "gsap";
 export default {
   name: "Animation1",
+  props: ["opacity"],
   data: () => ({
     tl: null,
     progress: 0
@@ -18,26 +19,37 @@ export default {
   computed: mapState(["slideWidth"]),
   watch: {
     slideWidth: function() {
+      this.startAnimation();
+    },
+    opacity: function() {
+      this.startAnimation();
+    }
+  },
+  methods: {
+    startAnimation: function() {
       if (this.$data.tl) {
         this.$data.tl.kill();
       }
       this.$data.tl = new TimelineMax({ repeat: -1 });
       this.$data.tl
+        .to({}, { duration: 2 })
         .to(
           this.$refs.ball1,
           {
-            left: this.slideWidth * 0.4,
+            left: this.slideWidth * 0.23,
             duration: 1,
-            rotation: 360
+            rotation: 360,
+            ease: "none"
           },
           "1"
         )
         .to(
           this.$refs.ball2,
           {
-            left: this.slideWidth * 0.65,
+            left: this.slideWidth * 0.56,
             duration: 1,
-            rotation: 180
+            rotation: 360,
+            ease: "none"
           },
           "1"
         )
@@ -46,7 +58,8 @@ export default {
           {
             left: this.slideWidth * 0.9,
             duration: 1,
-            rotation: 90
+            rotation: 360,
+            ease: "none"
           },
           "1"
         );
@@ -68,6 +81,8 @@ export default {
   overflow: hidden;
   width: sw(10);
   height: sw(10);
+  border-color: teal;
+  background-color: turquoise;
   &::before {
     content: "";
     background-color: white;
@@ -85,9 +100,9 @@ export default {
   left: 0;
 }
 .circle-middle {
-  left: sw(50);
+  left: sw(33);
 }
 .circle-right {
-  left: sw(75);
+  left: sw(66);
 }
 </style>

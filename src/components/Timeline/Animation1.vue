@@ -11,6 +11,7 @@ import { mapState } from "vuex";
 import { TimelineMax } from "gsap";
 export default {
   name: "Animation1",
+  props: ["opacity"],
   data: () => ({
     tl: null,
     progress: 0
@@ -24,9 +25,10 @@ export default {
       this.$data.tl = new TimelineMax({ repeat: -1 });
       this.$data.tl
         .to(this.$refs.ball1, {
-          left: this.slideWidth * 0.4,
+          left: this.slideWidth * 0.23,
           duration: 1,
-          rotation: 360
+          rotation: 360,
+          ease: "none"
         })
         .to({}, { duration: 1 });
     }
@@ -64,9 +66,9 @@ export default {
   left: 0;
 }
 .circle-middle {
-  left: sw(50);
+  left: sw(33);
 }
 .circle-right {
-  left: sw(75);
+  left: sw(66);
 }
 </style>

@@ -4,11 +4,11 @@
       gsap.to(".ball1", {x: 100, rotation: 360})
     </div>
     <div>
-      gsap.to(".ball2", {x: 50, rotation: 180,
+      gsap.to(".ball2", {x: 100, rotation: 360,
       <span class="highlight">delay: 1</span>})
     </div>
     <div>
-      gsap.to(".ball3", {x: 25, rotation: 90,
+      gsap.to(".ball3", {x: 100, rotation: 360,
       <span class="highlight">delay: 2</span>});
     </div>
   </div>
@@ -22,7 +22,15 @@ export default {
 
 <style scoped lang="scss">
 .highlight {
-  background-color: palegoldenrod;
-  border-bottom: sw(0.5) solid gold;
+  background-color: gold;
+  border-bottom: sw(0.5) solid orangered;
+  color: darkred;
+}
+div {
+  margin: sw(1) 0;
+}
+.content {
+  background-color: lightgoldenrodyellow !important;
+  color: orangered;
 }
 </style>

@@ -4,10 +4,10 @@
       gsap.to(".ball1", {x: 100, rotation: 360});
     </div>
     <div>
-      gsap.to(".ball2", {x: 50, rotation: 180});
+      gsap.to(".ball2", {x: 100, rotation: 360});
     </div>
     <div>
-      gsap.to(".ball3", {x: 25, rotation: 90});
+      gsap.to(".ball3", {x: 100, rotation: 360});
     </div>
   </div>
 </template>
@@ -17,3 +17,10 @@ export default {
   name: "Content2"
 };
 </script>
+
+<style lang="scss" scoped>
+.content {
+  background-color: paleturquoise !important;
+  color: teal;
+}
+</style>

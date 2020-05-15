@@ -1,13 +1,17 @@
 <template>
-  <Slide :timeline="tl" slideName="timeline" slideCount="1">
-    <h1>Sequential tweens?</h1>
-    <Animation1 />
-    <Animation2 />
-    <Animation3 />
-    <Content1 />
-    <Content2 />
-    <Content3 />
-    <Content4 />
+  <Slide :timeline="tl" slideName="timeline" slideCount="5">
+    <h1 ref="test">Sequential tweens?</h1>
+    <div class="animation-wrapper">
+      <Animation1 ref="animation1" />
+      <Animation2 ref="animation2" />
+      <Animation3 ref="animation3" />
+    </div>
+    <div class="content-wrapper">
+      <Content1 ref="content1" />
+      <Content2 ref="content2" />
+      <Content3 ref="content3" />
+      <Content4 ref="content4" />
+    </div>
   </Slide>
 </template>
 
@@ -36,29 +40,58 @@ export default {
   },
   data: () => ({
     tl: null,
-    progress: 0
+    progress: 0,
+    animation1: 1,
+    animation2: 0,
+    animation3: 0
   }),
   computed: mapState(["slideWidth"]),
   watch: {
     slideWidth: function() {
       this.$data.tl = new TimelineMax();
+      this.$data.tl
+        .to({}, { duration: 1 })
+        .to(this.$refs.content1.$el, { opacity: 0, y: 100 }, "c1")
+        .from(this.$refs.content2.$el, { opacity: 0, y: -100 }, "c1")
+        .to({}, { duration: 1 })
+        .to(this.$refs.animation1.$el, { opacity: 0, y: 100 }, "a1")
+        .from(this.$refs.animation2.$el, { opacity: 0, y: -100 }, "a1")
+        .to({}, { duration: 1 })
+        .to(this.$refs.content2.$el, { opacity: 0, y: 100 }, "c2")
+        .from(this.$refs.content3.$el, { opacity: 0, y: -100 }, "c2")
+        .to(this.$refs.animation2.$el, { opacity: 0, y: 100 }, "c2")
+        .from(this.$refs.animation3.$el, { opacity: 0, y: -100 }, "c2")
+        .to({}, { duration: 1 })
+        .to(this.$refs.content3.$el, { opacity: 0, y: 100 }, "c3")
+        .from(this.$refs.content4.$el, { opacity: 0, y: -100 }, "c3");
     }
   }
 };
 </script>
 
 <style scoped lang="scss">
-.animation {
+.animation-wrapper,
+.content-wrapper {
   width: 100%;
-  height: sw(20);
+  height: sw(25);
   display: flex;
   align-items: center;
   position: relative;
 }
-.content {
-  background-color: #eee;
-  border-radius: sw(5);
-  padding: sw(5);
-  font-size: 0.8em;
+.animation-wrapper {
+  .animation {
+    display: flex;
+    align-items: center;
+    position: absolute;
+  }
+}
+.content-wrapper {
+  .content {
+    position: absolute;
+    background-color: #eee;
+    border-radius: sw(5);
+    padding: sw(5);
+    font-size: 0.8em;
+  }
 }
 </style>
