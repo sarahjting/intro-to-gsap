@@ -1,24 +1,25 @@
 # intro-to-gsap
 
-## Project setup
+animation......... is magical
+
+## Setup
+
+1. Install dependencies
+
 ```
-yarn install
+yarn
 ```
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+2. Build
 
-### Compiles and minifies for production
 ```
 yarn build
 ```
 
-### Lints and fixes files
-```
-yarn lint
-```
+3. Play Arknights
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Using
+
+- Vue
+- GSAP
+- ScrollMagic
