@@ -7,6 +7,7 @@
           >latform</span
         ></b
       >
+      🧦
     </h1>
     <h2>Sarah Ting</h2>
   </Slide>
@@ -16,7 +17,7 @@
 import { TimelineMax } from "gsap";
 import Slide from "./Slide";
 export default {
-  name: "TimelineSlide",
+  name: "TitleSlide",
   components: {
     Slide
   },
@@ -25,7 +26,10 @@ export default {
   }),
   mounted: function() {
     this.$data.tl = new TimelineMax();
-    this.$data.tl.to("h1 span", { text: "" }).to("h1 b", { color: "green" });
+    this.$data.tl
+      .to(".slide-title h1 span", { text: "" })
+      .to(".slide-title h1 b", { color: "green" })
+      .to({}, { duration: 1 });
   }
 };
 </script>

@@ -2,6 +2,7 @@
   <div id="app" :style="cssVars">
     <div class="content" ref="content">
       <TitleSlide />
+      <SelfIntroSlide />
       <IntroToTweenSlide />
       <AnatomyOfGSAPSlide />
       <SpecialOptionsSlide />
@@ -16,6 +17,7 @@ import IntroToTweenSlide from "./components/IntroToTweenSlide";
 import AnatomyOfGSAPSlide from "./components/AnatomyOfGSAPSlide";
 import SpecialOptionsSlide from "./components/SpecialOptionsSlide";
 import TimelineSlide from "./components/TimelineSlide";
+import SelfIntroSlide from "./components/SelfIntroSlide";
 export default {
   name: "App",
   components: {
@@ -23,7 +25,8 @@ export default {
     IntroToTweenSlide,
     AnatomyOfGSAPSlide,
     SpecialOptionsSlide,
-    TimelineSlide
+    TimelineSlide,
+    SelfIntroSlide
   },
   computed: {
     cssVars() {
@@ -74,8 +77,20 @@ body {
   border-radius: 50%;
   border: darkred solid sw(0.5);
 }
-h1 {
+h1,
+h2 {
+  text-align: center;
   width: 100%;
   margin-bottom: sw(5);
+}
+ul {
+  list-style: none;
+  margin-left: 0;
+  li {
+    margin-bottom: sw(5);
+    .bullet {
+      margin-right: sw(2.5);
+    }
+  }
 }
 </style>
