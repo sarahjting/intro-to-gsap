@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+    <title>GSAP Animation Sandbox</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .animation {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+        }
+        .ball {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: red;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js" integrity="sha256-3arngJBQR3FTyeRtL3muAGFaGcL8iHsubYOqq48mBLw=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div class="animation">
+        <div class="ball"></div>
+    </div>
+
+    <script>
+        const tl = new TimelineMax({ repeat: -1 });
+        tl.from(".ball", { top:200, ease:"circ.out", yoyo: true, repeat: -1, duration: 0.3 }, 'A')
+          .to(".ball", { left:800, ease:"none", yoyo: true, repeat: -1, duration: 2.1 }, 'A');
+    </script>
+</body>
+</html>
