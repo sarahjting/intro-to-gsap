@@ -25,7 +25,8 @@ export default {
       new ScrollScene({
         triggerElement: this.$refs.slide,
         triggerHook: "onLeave",
-        duration: `${this.slideCount * 100}%`,
+        duration: `${Number(this.slideCount) *
+          document.documentElement.clientHeight}`,
         offset: 0,
         gsap: {
           timeline: this.timeline
@@ -37,7 +38,9 @@ export default {
       });
     }
   },
-  mounted: function() {}
+  mounted: function() {
+    this.$store.commit("incrementSlideCount", this.slideCount);
+  }
 };
 </script>
 

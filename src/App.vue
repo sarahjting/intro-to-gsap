@@ -1,6 +1,7 @@
 <template>
   <div id="app" :style="cssVars">
     <div class="content" ref="content">
+      <Contents />
       <TitleSlide />
       <SelfIntroSlide />
       <WhyGSAPSlide />
@@ -13,6 +14,7 @@
 </template>
 
 <script>
+import Contents from "./components/Contents";
 import TitleSlide from "./components/TitleSlide";
 import SelfIntroSlide from "./components/SelfIntroSlide";
 import WhyGSAPSlide from "./components/WhyGSAPSlide";
@@ -23,6 +25,7 @@ import TimelineSlide from "./components/TimelineSlide";
 export default {
   name: "App",
   components: {
+    Contents,
     TitleSlide,
     WhyGSAPSlide,
     IntroToTweenSlide,
