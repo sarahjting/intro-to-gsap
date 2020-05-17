@@ -18,7 +18,7 @@
 import { TimelineMax } from "gsap";
 import Slide from "./Slide";
 export default {
-  name: "SelfIntroSlide",
+  name: "ConclusionSlide",
   components: {
     Slide
   },
