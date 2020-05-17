@@ -1,6 +1,7 @@
 <template>
   <div id="app" :style="cssVars">
     <div class="content" ref="content">
+      <TitleSlide />
       <IntroToTweenSlide />
       <AnatomyOfGSAPSlide />
       <SpecialOptionsSlide />
@@ -10,6 +11,7 @@
 </template>
 
 <script>
+import TitleSlide from "./components/TitleSlide";
 import IntroToTweenSlide from "./components/IntroToTweenSlide";
 import AnatomyOfGSAPSlide from "./components/AnatomyOfGSAPSlide";
 import SpecialOptionsSlide from "./components/SpecialOptionsSlide";
@@ -17,6 +19,7 @@ import TimelineSlide from "./components/TimelineSlide";
 export default {
   name: "App",
   components: {
+    TitleSlide,
     IntroToTweenSlide,
     AnatomyOfGSAPSlide,
     SpecialOptionsSlide,
@@ -72,9 +75,6 @@ body {
   border: darkred solid sw(0.5);
 }
 h1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
   margin-bottom: sw(5);
 }
