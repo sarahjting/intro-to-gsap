@@ -20,8 +20,7 @@ export default {
     Slide
   },
   data: () => ({
-    tl: null,
-    x: 0
+    tl: null
   }),
   mounted: function() {
     this.$data.tl = new TimelineMax();

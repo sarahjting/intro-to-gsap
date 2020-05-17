@@ -3,6 +3,7 @@
     <div class="content" ref="content">
       <TitleSlide />
       <SelfIntroSlide />
+      <WhyGSAPSlide />
       <IntroToTweenSlide />
       <AnatomyOfGSAPSlide />
       <SpecialOptionsSlide />
@@ -13,15 +14,17 @@
 
 <script>
 import TitleSlide from "./components/TitleSlide";
+import SelfIntroSlide from "./components/SelfIntroSlide";
+import WhyGSAPSlide from "./components/WhyGSAPSlide";
 import IntroToTweenSlide from "./components/IntroToTweenSlide";
 import AnatomyOfGSAPSlide from "./components/AnatomyOfGSAPSlide";
 import SpecialOptionsSlide from "./components/SpecialOptionsSlide";
 import TimelineSlide from "./components/TimelineSlide";
-import SelfIntroSlide from "./components/SelfIntroSlide";
 export default {
   name: "App",
   components: {
     TitleSlide,
+    WhyGSAPSlide,
     IntroToTweenSlide,
     AnatomyOfGSAPSlide,
     SpecialOptionsSlide,
