@@ -43,7 +43,7 @@ export default {
       this.ss = new ScrollScene({
         //   triggerElement: this.$refs.slide,
         //   triggerHook: "onLeave",
-        duration: document.documentElement.clientHeight * (this.slideCount + 1),
+        duration: document.documentElement.clientHeight * (this.slideCount + 5),
         offset: 0,
         gsap: { timeline: this.tl },
         useGlobalController: false
@@ -61,7 +61,7 @@ export default {
       },
       transformOrigin: "50% 50%",
       duration: 5,
-      ease: "power1.inOut"
+      ease: "none"
     });
     this.startScroll();
     document

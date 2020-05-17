@@ -9,6 +9,7 @@
       <AnatomyOfGSAPSlide />
       <SpecialOptionsSlide />
       <TimelineSlide />
+      <ConclusionSlide />
     </div>
   </div>
 </template>
@@ -22,6 +23,7 @@ import IntroToTweenSlide from "./components/IntroToTweenSlide";
 import AnatomyOfGSAPSlide from "./components/AnatomyOfGSAPSlide";
 import SpecialOptionsSlide from "./components/SpecialOptionsSlide";
 import TimelineSlide from "./components/TimelineSlide";
+import ConclusionSlide from "./components/ConclusionSlide";
 export default {
   name: "App",
   components: {
@@ -32,7 +34,8 @@ export default {
     AnatomyOfGSAPSlide,
     SpecialOptionsSlide,
     TimelineSlide,
-    SelfIntroSlide
+    SelfIntroSlide,
+    ConclusionSlide
   },
   computed: {
     cssVars() {
