@@ -1,5 +1,5 @@
 <template>
-  <Slide :timeline="tl" slideName="why-gsap" slideCount="3">
+  <Slide :timeline="tl" slideName="gsap-alternatives" slideCount="3">
     <h1>Why GSAP?</h1>
     <div class="content">
       <div class="why why-animation">
@@ -24,7 +24,7 @@
 import { TimelineMax } from "gsap";
 import Slide from "./Slide";
 export default {
-  name: "WhyGSAPSlide",
+  name: "WhyGSAPAlternativesSlide",
   components: {
     Slide
   },
@@ -33,26 +33,7 @@ export default {
   }),
   mounted: function() {
     this.$data.tl = new TimelineMax();
-    this.$data.tl
-      .from(".why-animation .fill", {
-        y: -100,
-        opacity: 0
-      })
-      .from(".why-gsap .fill", {
-        y: -100,
-        opacity: 0
-      })
-      .to({}, { duration: 1 })
-      .from(".slide-why-gsap .why-animation .emoji, .why-animation .caption", {
-        y: 100,
-        opacity: 0
-      })
-      .to({}, { duration: 1 })
-      .from(".slide-why-gsap .why-gsap .emoji, .why-gsap .caption", {
-        y: 100,
-        opacity: 0
-      })
-      .to({}, { duration: 2 });
+    this.$data.tl.to({}, { duration: 2 });
   }
 };
 </script>

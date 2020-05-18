@@ -5,6 +5,8 @@
       <TitleSlide />
       <SelfIntroSlide />
       <WhyGSAPSlide />
+      <WhyGSAPAnimationSlide />
+      <WhyGSAPAlternativesSlide />
       <IntroToTweenSlide />
       <AnatomyOfGSAPSlide />
       <SpecialOptionsSlide />
@@ -19,6 +21,8 @@ import Contents from "./components/Contents";
 import TitleSlide from "./components/TitleSlide";
 import SelfIntroSlide from "./components/SelfIntroSlide";
 import WhyGSAPSlide from "./components/WhyGSAPSlide";
+import WhyGSAPAnimationSlide from "./components/WhyGSAPAnimationSlide";
+import WhyGSAPAlternativesSlide from "./components/WhyGSAPAlternativesSlide";
 import IntroToTweenSlide from "./components/IntroToTweenSlide";
 import AnatomyOfGSAPSlide from "./components/AnatomyOfGSAPSlide";
 import SpecialOptionsSlide from "./components/SpecialOptionsSlide";
@@ -30,6 +34,8 @@ export default {
     Contents,
     TitleSlide,
     WhyGSAPSlide,
+    WhyGSAPAnimationSlide,
+    WhyGSAPAlternativesSlide,
     IntroToTweenSlide,
     AnatomyOfGSAPSlide,
     SpecialOptionsSlide,

@@ -3,9 +3,9 @@
     <h1>Hi! I'm Sarah!</h1>
     <div class="content">
       <ul>
-        <li><span class="bullet">🦋</span> CC11 graduate!</li>
-        <li><span class="bullet">🎮</span> Last time I talked about Unity</li>
-        <li><span class="bullet">👯‍♀️</span> Talk to me about Arknights</li>
+        <li><span class="bullet">🇦🇺</span> Australian webdev</li>
+        <li><span class="bullet">🦋</span> CC11 graduate</li>
+        <li><span class="bullet">🎮</span> I talked about Unity last term!</li>
       </ul>
     </div>
   </Slide>
