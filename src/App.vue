@@ -7,6 +7,7 @@
       <WhyGSAPSlide />
       <WhyGSAPAnimationSlide />
       <WhyGSAPAlternativesSlide />
+      <WhyGSAPComparisonsSlide />
       <IntroToTweenSlide />
       <AnatomyOfGSAPSlide />
       <SpecialOptionsSlide />
@@ -23,6 +24,7 @@ import SelfIntroSlide from "./components/SelfIntroSlide";
 import WhyGSAPSlide from "./components/WhyGSAPSlide";
 import WhyGSAPAnimationSlide from "./components/WhyGSAPAnimationSlide";
 import WhyGSAPAlternativesSlide from "./components/WhyGSAPAlternativesSlide";
+import WhyGSAPComparisonsSlide from "./components/WhyGSAPComparisonsSlide";
 import IntroToTweenSlide from "./components/IntroToTweenSlide";
 import AnatomyOfGSAPSlide from "./components/AnatomyOfGSAPSlide";
 import SpecialOptionsSlide from "./components/SpecialOptionsSlide";
@@ -36,6 +38,7 @@ export default {
     WhyGSAPSlide,
     WhyGSAPAnimationSlide,
     WhyGSAPAlternativesSlide,
+    WhyGSAPComparisonsSlide,
     IntroToTweenSlide,
     AnatomyOfGSAPSlide,
     SpecialOptionsSlide,
@@ -73,7 +76,7 @@ body {
 }
 .content {
   width: 100%;
-  max-width: 800px;
+  max-width: 1000px;
   align-self: center;
 }
 #app {
