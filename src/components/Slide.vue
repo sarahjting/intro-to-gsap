@@ -32,10 +32,7 @@ export default {
           timeline: this.timeline
         },
         useGlobalController: false
-      }).Scene.setPin(this.$refs.slide).addIndicators({
-        name: "pin scene",
-        colorEnd: "#000"
-      });
+      }).Scene.setPin(this.$refs.slide);
     }
   },
   mounted: function() {
