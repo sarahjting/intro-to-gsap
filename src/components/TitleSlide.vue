@@ -29,7 +29,7 @@ export default {
     this.$data.tl
       .to(".slide-title h1 span", { text: "" })
       .to(".slide-title h1 b", { color: "green" })
-      .to({}, { duration: 1 });
+      .to({}, { duration: 2 });
   }
 };
 </script>

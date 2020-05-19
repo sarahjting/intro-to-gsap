@@ -1,5 +1,5 @@
 <template>
-  <Slide :timeline="tl" slideName="anatomy" slideCount="1">
+  <Slide :timeline="tl" slideName="anatomy" slideCount="5">
     <h1>Anatomy of GSAP</h1>
     <div class="header">
       gsap.<span class="anatomy-part anatomy-method" ref="anatomyMethod"

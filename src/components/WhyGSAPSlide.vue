@@ -34,6 +34,7 @@ export default {
   mounted: function() {
     this.$data.tl = new TimelineMax();
     this.$data.tl
+      .to({}, { duration: 2 })
       .from(".why-animation .fill", {
         y: -100,
         opacity: 0

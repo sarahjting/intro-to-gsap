@@ -126,7 +126,7 @@ export default {
     });
 
     new ScrollScene({
-      duration: 45000,
+      duration: 50000,
       offset: 0,
       gsap: { timeline: this.tl },
       useGlobalController: false

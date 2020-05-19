@@ -1,5 +1,5 @@
 <template>
-  <Slide :timeline="tl" slideName="gsap-alternatives" slideCount="5">
+  <Slide :timeline="tl" slideName="gsap-alternatives" slideCount="6">
     <h1>Why GSAP?</h1>
     <div class="content">
       <div class="column column-css">
@@ -60,16 +60,17 @@ export default {
     const tween = { y: 100, opacity: 0 };
     this.$data.tl = new TimelineMax();
     this.$data.tl
+      .to({}, { duration: 2 })
       .from(this.$refs.headerCss, tween)
       .from(this.$refs.headerJQuery, tween)
       .from(this.$refs.headerGsap, tween)
-      .to({}, { duration: 1 })
-      .staggerFrom(".slide-gsap-alternatives .column-css li", 1, tween, 2)
-      .to({}, { duration: 1 })
-      .staggerFrom(".slide-gsap-alternatives .column-jquery li", 1, tween, 2)
-      .to({}, { duration: 1 })
-      .staggerFrom(".slide-gsap-alternatives .column-gsap li", 1, tween, 2)
-      .to({}, { duration: 2 });
+      .to({}, { duration: 2 })
+      .staggerFrom(".slide-gsap-alternatives .column-css li", 1, tween, 3)
+      .to({}, { duration: 2 })
+      .staggerFrom(".slide-gsap-alternatives .column-jquery li", 1, tween, 3)
+      .to({}, { duration: 2 })
+      .staggerFrom(".slide-gsap-alternatives .column-gsap li", 1, tween, 3)
+      .to({}, { duration: 3 });
 
     const shineTl = new TimelineMax({ repeat: -1 });
     shineTl

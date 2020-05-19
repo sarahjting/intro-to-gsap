@@ -48,8 +48,11 @@ export default {
       }
       this.$data.tl = new TimelineMax();
       this.$data.tl
+        .to({}, { duration: 2 })
         .staggerFrom(".slide-tween .stagger-0", 1, { x: -100, opacity: 0 }, 0.1)
+        .to({}, { duration: 2 })
         .staggerFrom(".slide-tween .stagger-1", 1, { x: -100, opacity: 0 }, 0.1)
+        .to({}, { duration: 2 })
         .staggerFrom(
           ".slide-tween .stagger-2",
           1,
@@ -57,7 +60,7 @@ export default {
           0.1,
           "fade"
         )
-        .to(".slide-tween .circle-right", { opacity: 0.1 }, "fade")
+        .to({}, { duration: 2 })
         .to(this.$data, { progress: 100, duration: 3 }, "slide")
         .to(
           ".slide-tween .circle",
@@ -73,7 +76,8 @@ export default {
           { x: 100, opacity: 0 },
           0.1,
           "slide"
-        );
+        )
+        .to({}, { duration: 3 });
     }
   }
 };
@@ -112,6 +116,7 @@ export default {
 }
 .circle-right {
   left: sw(70);
+  opacity: 0.1;
 }
 .stats-wrapper {
   padding: sw(2.5);

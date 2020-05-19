@@ -47,12 +47,13 @@ export default {
   mounted: function() {
     this.$data.tl = new TimelineMax();
     this.$data.tl
+      .to({}, { duration: 2 })
       .from(this.$refs.why1, { x: "100vw" })
       .to({}, { duration: 1 })
       .from(this.$refs.why2, { x: "100vw" })
       .to({}, { duration: 1 })
       .from(this.$refs.why3, { x: "100vw" })
-      .to({}, { duration: 2 });
+      .to({}, { duration: 3 });
   }
 };
 </script>

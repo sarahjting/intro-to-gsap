@@ -25,6 +25,7 @@ export default {
   mounted: function() {
     this.$data.tl = new TimelineMax();
     this.$data.tl
+      .to({}, { duration: 2 })
       .staggerFrom(
         ".slide-self-intro li",
         1,
@@ -32,9 +33,9 @@ export default {
           opacity: 0,
           y: 100
         },
-        1
+        3
       )
-      .to({}, { duration: 2 });
+      .to({}, { duration: 3 });
   }
 };
 </script>
