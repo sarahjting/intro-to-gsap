@@ -3,11 +3,22 @@
     <div class="rocket"><span>🚀</span></div>
     <div
       class="checkpoint"
-      :pos="i"
-      :key="i"
-      v-for="i in [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]"
+      :pos="k"
+      :key="k"
+      v-for="(v, k) in {
+        0: 'Introduction',
+        10: 'Why GSAP?',
+        47: 'Sample',
+        62: 'GSAP',
+        78: 'Anatomy of GSAP',
+        95: 'Anatomy of GSAP'
+      }"
     >
       <i class="fa fa-star"></i>
+    </div>
+    <div class="checkpoint checkpoint-goal" :pos="100">
+      <i class="fa fa-star"></i>
+      <div class="checkpoint-name">Goal!</div>
     </div>
     <svg id="motionPath" viewBox="-20 0 100 275">
       <path
@@ -15,7 +26,7 @@
         fill="none"
         stroke="#000"
         stroke-width="1"
-        stroke-dasharray="5,5"
+        stroke-dasharray="5,4"
         d="M-20.847,-2.348 C-4.025,6.268 28.89,22.242 27.175,40.609 24.294,71.155 -5.006,72.679 0.062,100.359 4.566,124.954 -15.788,144.643 -15.841,159.079 -15.896,174.304 -7.256,180.346 12.999,192.948 47.13,214.182 22.096,261.56 -4.729,259.314 "
       />
     </svg>
@@ -45,57 +56,80 @@ gsap.registerPlugin(MotionPathPlugin);
 export default {
   name: "Contents",
   data: () => ({
-    tl: null,
-    ss: null
+    tl: null
   }),
-  computed: {
-    slideCount: function() {
-      return this.$store.state.slideCount;
-    }
-  },
-  watch: {
-    slideCount: function() {
-      this.startScroll();
-    }
-  },
-  methods: {
-    startScroll: function() {
-      if (this.ss) this.ss.destroy();
-      this.ss = new ScrollScene({
-        duration: document.documentElement.clientHeight * (this.slideCount + 5),
-        offset: 0,
-        gsap: { timeline: this.tl },
-        useGlobalController: false
-      });
-    }
-  },
+  methods: {},
   mounted: function() {
     this.tl = new TimelineMax();
-    this.tl.to(".rocket", {
-      motionPath: {
-        path: "#path",
-        align: "#path",
-        alignOrigin: [0.5, 0.5],
-        autoRotate: 50
+    this.tl.to(
+      ".rocket",
+      {
+        motionPath: {
+          path: "#path",
+          align: "#path",
+          alignOrigin: [0.5, 0.5],
+          autoRotate: 50
+        },
+        transformOrigin: "50% 50%",
+        ease: "none",
+        duration: 100
       },
-      transformOrigin: "50% 50%",
-      duration: 5,
-      ease: "none"
-    });
-    this.startScroll();
+      0
+    );
 
-    // Get the coordinates of the point that is the fraction 'pos' along the path
     const path = document.getElementById("path");
     const pathLength = path.getTotalLength();
-
-    // Make a div
     document.getElementsByClassName("checkpoint").forEach(x => {
+      // place the div
       const loc = path.getPointAtLength(
         (x.attributes.pos.value / 100) * pathLength
       );
       x.style.left = (loc.x + 13) * 3.6 + "px";
       x.style.top = (loc.y - 7) * 3.6 + "px";
-      console.log(loc);
+
+      if (x.attributes.pos.value < 100) {
+        // add animation
+        this.tl.to(
+          x.childNodes[0],
+          {
+            color: "gold",
+            rotation: 360,
+            ease: "circ.out",
+            duration: 10,
+            scale: 2,
+            delay: x.attributes.pos.value
+          },
+          0
+        );
+      } else {
+        this.tl
+          .to(
+            x.childNodes[0],
+            {
+              color: "gold",
+              rotation: 410,
+              ease: "circ.out",
+              duration: 10,
+              scale: 15
+            },
+            100
+          )
+          .from(
+            x.childNodes[1],
+            {
+              opacity: 0,
+              duration: 10
+            },
+            100
+          );
+      }
+    });
+
+    new ScrollScene({
+      duration: 45000,
+      offset: 0,
+      gsap: { timeline: this.tl },
+      useGlobalController: false
     });
   }
 };
@@ -109,8 +143,17 @@ export default {
   width: 100vw;
   height: 100vh;
 
+  .checkpoint-goal {
+    z-index: 10;
+    .checkpoint-name {
+      position: absolute;
+      top: 0;
+      font-weight: 700;
+    }
+  }
   .checkpoint {
     position: absolute;
+    transform: scale(0.5);
   }
 
   #motionPath {
