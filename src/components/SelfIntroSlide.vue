@@ -5,8 +5,9 @@
       <ul>
         <li><span class="bullet">🇦🇺</span> Australian webdev</li>
         <li><span class="bullet">🦋</span> CC11 graduate</li>
-        <li><span class="bullet">🎮</span> I talked about Unity last term!</li>
+        <li><span class="bullet">🥰</span> PHP, JavaScript</li>
       </ul>
+      <img src="/sarah.png" />
     </div>
   </Slide>
 </template>
@@ -41,4 +42,14 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+img {
+  max-height: 50vh;
+  border-radius: sw(10);
+}
 </style>
