@@ -14,13 +14,13 @@
       <div class="stats stagger-0">
         <div class="stat">
           <span>x:</span>
-          <span>{{ Math.floor(progress * 3) }}px</span>
+          <span>{{ Math.floor(progress) }}px</span>
         </div>
       </div>
       <div class="stats stagger-1">
         <div class="stat">
           <span>x:</span>
-          <span>300px</span>
+          <span>100px</span>
         </div>
       </div>
     </div>

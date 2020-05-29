@@ -4,31 +4,31 @@
       <div class="content">
         <span class="anatomy-part anatomy-duration">
           ...to('.ball', {x: 100,
-          <span class="duration">duration: 4</span>})
+          <span class="duration">duration: 0.5</span>})
         </span>
       </div>
       <div class="animation-box">
-        <div class="circle" ref="regularCircle"></div>
+        <div class="circle" ref="fastCircle"></div>
       </div>
     </div>
     <div class="slow">
       <div class="content">
         ...to('.ball', {x: 100,
-        <span class="duration">duration: 8</span>})
+        <span class="duration">duration: 1</span>})
       </div>
       <div class="animation-box">
-        <div class="circle" ref="slowCircle"></div>
+        <div class="circle" ref="regularCircle"></div>
       </div>
     </div>
     <div class="fast">
       <div class="content">
         <span class="anatomy-part anatomy-duration">
           ...to('.ball', {x: 100,
-          <span class="duration">duration: 2</span>})
+          <span class="duration">duration: 3</span>})
         </span>
       </div>
       <div class="animation-box">
-        <div class="circle" ref="fastCircle"></div>
+        <div class="circle" ref="slowCircle"></div>
       </div>
     </div>
   </div>
@@ -42,7 +42,7 @@ export default {
   computed: mapState(["slideWidth"]),
   methods: {
     startAnimations() {
-      const offset = this.$store.state.slideWidth * 0.3;
+      const offset = this.$store.state.slideWidth * 0.35;
       Object.keys(this.circles).forEach(k => {
         if (this.loops[k]) this.loops[k].kill();
         this.loops[k] = new TimelineMax({ repeat: -1 });
@@ -57,9 +57,9 @@ export default {
   data: () => ({
     loops: [],
     circles: {
-      slowCircle: 8,
-      regularCircle: 4,
-      fastCircle: 2
+      slowCircle: 3,
+      regularCircle: 1,
+      fastCircle: 0.5
     }
   }),
   watch: {
