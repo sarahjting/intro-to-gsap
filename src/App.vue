@@ -11,7 +11,6 @@
       <IntroToTweenSlide />
       <AnatomyOfGSAPSlide />
       <SpecialOptionsSlide />
-      <TimelineSlide />
       <ConclusionSlide />
     </div>
   </div>
@@ -28,7 +27,6 @@ import WhyGSAPComparisonsSlide from "./components/WhyGSAPComparisonsSlide";
 import IntroToTweenSlide from "./components/IntroToTweenSlide";
 import AnatomyOfGSAPSlide from "./components/AnatomyOfGSAPSlide";
 import SpecialOptionsSlide from "./components/SpecialOptionsSlide";
-import TimelineSlide from "./components/TimelineSlide";
 import ConclusionSlide from "./components/ConclusionSlide";
 export default {
   name: "App",
@@ -42,7 +40,6 @@ export default {
     IntroToTweenSlide,
     AnatomyOfGSAPSlide,
     SpecialOptionsSlide,
-    TimelineSlide,
     SelfIntroSlide,
     ConclusionSlide
   },
