@@ -45,7 +45,7 @@ export default {
   mounted: function() {
     this.$data.tl = new TimelineMax();
     this.$data.tl
-      .to(this.$refs.contentSpan, { text: "delay: 1" }, "1")
+      .to(this.$refs.contentSpan, { text: "delay: 0" }, "1")
       .to(this.$refs.durationAnimation.$el, { y: 100, opacity: 0 }, "1")
       .from(this.$refs.delayAnimation.$el, { y: -100, opacity: 0 }, "1")
       .fromTo(
@@ -55,7 +55,7 @@ export default {
         "1"
       )
       .to({}, { duration: 2 }, "1.5")
-      .to(this.$refs.contentSpan, { text: `ease: "elastic"` }, "2")
+      .to(this.$refs.contentSpan, { text: `ease: "none"` }, "2")
       .to(this.$refs.delayAnimation.$el, { y: 100, opacity: 0 }, "2")
       .from(this.$refs.easeAnimation.$el, { y: -100, opacity: 0 }, "2")
       .fromTo(

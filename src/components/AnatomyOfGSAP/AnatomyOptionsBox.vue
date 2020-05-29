@@ -2,15 +2,7 @@
   <div class="anatomy-options-detail">
     <div>
       <div class="content">
-        ...to('.ball', <span class="options">{x: 100}</span>)
-      </div>
-      <div class="animation">
-        <div class="circle moving-circle" ref="movingCircle"></div>
-      </div>
-    </div>
-    <div>
-      <div class="content">
-        ...to('.ball', <span class="options">{color: red}</span>)
+        gsap.to('.ball', <span class="options">{color: red}</span>)
       </div>
       <div class="animation">
         <div class="circle" ref="blueCircle"></div>
@@ -18,10 +10,18 @@
     </div>
     <div>
       <div class="content">
-        ...to('.ball', <span class="options">{opacity: 0}</span>)
+        gsap.to('.ball', <span class="options">{opacity: 0}</span>)
       </div>
       <div class="animation">
         <div class="circle" ref="fadeCircle"></div>
+      </div>
+    </div>
+    <div>
+      <div class="content">
+        gsap.to('.ball', <span class="options">{x: 100, scale: 3}</span>)
+      </div>
+      <div class="animation">
+        <div class="circle moving-circle" ref="movingCircle"></div>
       </div>
     </div>
   </div>
@@ -38,7 +38,8 @@ export default {
       if (this.loops.moving) this.loops.moving.kill();
       this.loops.moving = new TimelineMax({ repeat: -1 });
       this.loops.moving.to(this.$refs.movingCircle, {
-        left: this.$store.state.slideWidth * 0.45,
+        x: this.$store.state.slideWidth * 0.3,
+        scale: 3,
         duration: 3
       });
     }
