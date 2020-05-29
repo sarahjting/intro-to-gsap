@@ -85,7 +85,7 @@ export default {
         (x.attributes.pos.value / 100) * pathLength
       );
       x.style.left = (loc.x + 13) * 3.6 + "px";
-      x.style.top = (loc.y - 7) * 3.6 + "px";
+      x.style.top = (loc.y - 8.75) * 3.7 + "px";
 
       if (x.attributes.pos.value < 100) {
         // add animation
@@ -126,7 +126,7 @@ export default {
     });
 
     new ScrollScene({
-      duration: 50000,
+      duration: 42500,
       offset: 0,
       gsap: { timeline: this.tl },
       useGlobalController: false
