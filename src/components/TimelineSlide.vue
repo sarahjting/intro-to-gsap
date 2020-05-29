@@ -63,7 +63,8 @@ export default {
         .from(this.$refs.animation3.$el, { opacity: 0, y: -100 }, "c2")
         .to({}, { duration: 1 })
         .to(this.$refs.content3.$el, { opacity: 0, y: 100 }, "c3")
-        .from(this.$refs.content4.$el, { opacity: 0, y: -100 }, "c3");
+        .from(this.$refs.content4.$el, { opacity: 0, y: -100 }, "c3")
+        .to({}, { duration: 2 });
     }
   }
 };
